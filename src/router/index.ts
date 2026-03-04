@@ -6,6 +6,7 @@ import TimetableView from '../views/TimetableView.vue'
 import LoginView from '../views/LoginView.vue'
 import { auth } from '../firebase' // 認証状態を確認するために追加
 
+/* ルーティング定義 */
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [ // URL -> 画面
@@ -24,7 +25,7 @@ const router = createRouter({
   ]
 })
 
-// ページを移動する前に毎回実行される「門番」の処理
+// ページを移動する前に毎回実行されるチェック
 router.beforeEach((to, _, next) => { // (to, from, next)
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   const isAuthenticated = auth.currentUser // 現在ログインしているユーザー情報
