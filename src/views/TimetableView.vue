@@ -130,7 +130,7 @@ const logout = async () => {
 <template>
   <div class="timetable-container">
     <header class="header">
-      <h1>マイ時間割</h1>
+      <h1>Table-manner</h1>
       <button @click="logout" class="logout-button">ログアウト</button>
     </header>
 
@@ -181,15 +181,15 @@ const logout = async () => {
         </div>
 
         <div class="modal-actions">
-          <button 
-            v-if="timetableData[currentCellId]" 
+          <button
+            v-if="timetableData[currentCellId]"
             @click="deleteClass"
             class="delete-button"
           >
             削除する
           </button>
           <div style="flex-grow: 1;"></div> <button @click="closeModal" class="cancel-button">キャンセル</button>
-          <button 
+          <button
             @click="saveClass"
             class="save-button"
           >保存する</button>
@@ -206,7 +206,8 @@ const logout = async () => {
 }
 .timetable-container {
   /* max-width: 800px; を削除して画面幅に合わせる */
-  margin: 0 auto;
+  /* min-width: 400px; */
+  margin: 0 auto 30px auto ;
   padding: 0;
 }
 .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
@@ -230,13 +231,13 @@ const logout = async () => {
   vertical-align: top;
   word-break: break-all; /* 長い単語でも折り返せるようにする */
 }
-.timetable th { background-color: #f5f5f5; height: auto; vertical-align: middle; }
+.timetable th { background-color: #baeedb; height: auto; vertical-align: middle; }
 .timetable th:first-child { width: 40px; }
-.timetable .period-cell { background-color: #f9f9f9; font-weight: bold; vertical-align: middle;}
-.class-cell { cursor: pointer; background-color: #ffffff; transition: background-color 0.2s; }
+.timetable .period-cell { background-color: #c9f1e2; font-weight: bold; vertical-align: middle;}
+.timetable .class-cell { cursor: pointer; background-color: #ffffff; transition: background-color 0.2s; vertical-align: middle; }
 .class-cell:hover { background-color: #f0f8ff; }
-.empty-cell { color: #ccc; font-size: 1.5em; display: flex; align-items: center; justify-content: center; height: 100%; }
-.subject-name { font-weight: bold; font-size: 0.8em; margin-bottom: 4px; }
+.empty-cell { color: #ccc; font-size: 1.5em; }
+.subject-name {color: #1a9889; font-weight: bold; font-size: 0.9em; margin-bottom: 4px; }
 .room-name { font-size: 0.8em; color: #666; }
 
 /* モーダル用のスタイル追加 */
@@ -257,5 +258,5 @@ const logout = async () => {
 .modal-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
 .delete-button { padding: 8px 16px; cursor: pointer; background-color: #f44336; border: none; color: white; border-radius: 8px; }
 .cancel-button { padding: 8px 16px; cursor: pointer; background-color: #eee; border: none; border-radius: 8px; }
-.save-button { padding: 8px 16px; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 8px; }
+.save-button { padding: 8px 16px; cursor: pointer; background-color: #13d78f; color: white; border: none; border-radius: 8px; }
 </style>
